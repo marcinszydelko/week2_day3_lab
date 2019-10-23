@@ -56,10 +56,18 @@ class TestPub < MiniTest::Test
     assert_equal(1003, @pub1.till)
   end
 
-  def test_sell_drink
+  def test_sell_drink__too_young
     @pub1.sell_drink(@drink1, @customer2)
     assert_equal([@drink1, @drink2], @pub1.drinks)
     assert_equal(false, @pub1.check_customer_age(@customer2))
+    assert_equal(1000, @pub1.till)
+  end
+
+  def test_sell_drink__customer_drunk
+    10.times{@customer1.increase_drunkenness(@drink2)}
+    @pub1.sell_drink(@drink2, @customer1)
+    assert_equal([@drink1, @drink2], @pub1.drinks)
+    assert_equal(true, @pub1.check_customer_age(@customer1))
     assert_equal(1000, @pub1.till)
   end
 

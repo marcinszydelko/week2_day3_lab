@@ -31,7 +31,7 @@ class Pub
    end
 
    def sell_drink(drink, customer)
-    if check_customer_age(customer) == true
+    if check_customer_age(customer) == true && customer_drunkenness(customer) == true
       remove_drink(drink)
       increase_till(drink.price)
     end
@@ -40,7 +40,6 @@ class Pub
    def customer_drunkenness(customer)
      allowed_level = 20
      return true if customer.drunkenness <= allowed_level
-
      return false
    end
 
