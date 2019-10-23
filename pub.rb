@@ -24,6 +24,11 @@ class Pub
      return match
    end
 
+   def check_customer_age(customer)
+     legal_age = 18
+     return true if customer.age >= legal_age
+     return false
+   end
 
 
 end

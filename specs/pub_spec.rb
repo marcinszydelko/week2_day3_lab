@@ -2,6 +2,7 @@ require('minitest/autorun')
 require('minitest/rg')
 require_relative('../pub')
 require_relative('../drink')
+require_relative('../customer')
 
 class TestPub < MiniTest::Test
 
@@ -11,6 +12,9 @@ class TestPub < MiniTest::Test
     @drink2 = Drink.new("Best", 4, 6)
     # @stock = [@drink1, @drink2]
     @pub1 = Pub.new("Ruby Inn", 1000,[@drink1, @drink2])
+    @customer1 = Customer.new("Bill", 15, 20)
+    @customer2 = Customer.new("Will", 30, 12)
+    @customer3 = Customer.new("Gill", 2, 30)
 
   end
 
@@ -40,7 +44,10 @@ class TestPub < MiniTest::Test
     assert_equal(nil, result)
   end
 
-
+  def test_check_customer_age
+    result = @pub1.check_customer_age(@customer1)
+    assert_equal(true, result)
+  end
 
 
 
