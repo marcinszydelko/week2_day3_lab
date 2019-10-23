@@ -20,10 +20,9 @@ class Customer
 
   def buy_drink(drink, pub)
     chosen_drink = pub.find_drink_by_name(drink)
-    return "not enough funds" if check_wallet(chosen_drink.price) == false 
+    return "not enough funds" if check_wallet(chosen_drink.price) == false
+    pub.sell_drink(chosen_drink, self)
     reduce_wallet(chosen_drink.price)
-    pub.remove_drink(chosen_drink)
-    pub.increase_till(chosen_drink.price)
   end
 
 
