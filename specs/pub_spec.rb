@@ -63,7 +63,9 @@ class TestPub < MiniTest::Test
     assert_equal(1000, @pub1.till)
   end
 
-
+  def test_customer_drunkenness__pass
+    assert_equal(true, @pub1.customer_drunkenness(@customer2))
+  end
 
 
 

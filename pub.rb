@@ -35,8 +35,13 @@ class Pub
       remove_drink(drink)
       increase_till(drink.price)
     end
-
    end
 
+   def customer_drunkenness(customer)
+     allowed_level = 20
+     return true if customer.drunkenness <= allowed_level
+
+     return false
+   end
 
 end
