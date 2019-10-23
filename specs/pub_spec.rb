@@ -30,7 +30,7 @@ class TestPub < MiniTest::Test
     assert_equal([@drink2], @pub1.drinks)
   end
 
-  def test_find_drink_by_name__nas_drink
+  def test_find_drink_by_name__has_drink
     result = @pub1.find_drink_by_name("Tenants")
     assert_equal(@drink1, result)
   end

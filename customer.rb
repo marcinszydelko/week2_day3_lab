@@ -13,8 +13,17 @@ class Customer
     @wallet -= amount if amount > 0
   end
 
-  def buy_drink(drink)
+  def check_wallet(drink, pub)
+    chosen_drink = pub.find_drink_by_name(drink)
+    return true if chosen_drink.price <= @wallet
+    return false
+  end
 
+  def buy_drink(drink, pub)
+    chosen_drink = pub.find_drink_by_name(drink)
+    reduce_wallet(chosen_drink.price)
+    pub.remove_drink(chosen_drink)
+    pub.increase_till(chosen_drink.price)
   end
 
 

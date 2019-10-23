@@ -11,6 +11,7 @@ class TestCustomer < MiniTest::Test
     @customer2 = Customer.new("Will", 30, 12)
     @drink1 = Drink.new("Tenants", 3, 5)
     @drink2 = Drink.new("Best", 4, 6)
+    @pub1 = Pub.new("Ruby Inn", 1000,[@drink1, @drink2])
   end
 
   def test_customer_attributes
@@ -31,15 +32,17 @@ class TestCustomer < MiniTest::Test
   end
 
 
-  # def test_buy_drink
-  #   @customer1.buy_drink("Tenants")
-  #   assert_equal(12, @customer1.wallet)
-  # end
-  #
-  # def test_check_wallet__has_enough
-  #   result = @customer1.check_wallet("Tenants")
-  #   assert_equal(true, result)
-  # end
+  def test_buy_drink
+    @customer1.buy_drink("Tenants", @pub1)
+    assert_equal(12, @customer1.wallet)
+    assert_equal(1003, @pub1.till)
+    assert_equal([@drink2], @pub1.drinks)
+  end
+
+  def test_check_wallet__has_enough
+    result = @customer1.check_wallet("Tenants", @pub1)
+    assert_equal(true, result)
+  end
 
 
 
