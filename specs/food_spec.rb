@@ -14,7 +14,9 @@ class TestFood < MiniTest::Test
     assert_equal("Kebab", @food1.name)
     assert_equal(1, @food2.price)
     assert_equal(10, @food1.rejuvenation_level)
-  end 
+  end
+
+
 
 
 

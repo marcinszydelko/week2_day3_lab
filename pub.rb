@@ -43,4 +43,8 @@ class Pub
      return false
    end
 
+   def sell_food(food)
+     increase_till(food.price)
+   end 
+
 end

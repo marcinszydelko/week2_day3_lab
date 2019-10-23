@@ -30,7 +30,17 @@ class Customer
     @drunkenness += drink.alcohol_level
   end
 
+  def eat_food(food)
+    @drunkenness -= food.rejuvenation_level
+  end
 
+  def buy_food(food)
+    if check_wallet(food.price) == true
+      reduce_wallet(food.price)
+      eat_food(food)
+    end
+
+  end
 
 
 end
