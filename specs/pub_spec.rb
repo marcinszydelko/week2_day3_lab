@@ -41,7 +41,7 @@ class TestPub < MiniTest::Test
 
   def test_find_drink_by_name__no_drink_found
     result = @pub1.find_drink_by_name("Tea")
-    assert_equal(nil, result)
+    assert_nil(result)
   end
 
   def test_check_customer_age
@@ -49,7 +49,19 @@ class TestPub < MiniTest::Test
     assert_equal(true, result)
   end
 
+  def test_sell_drink
+    @pub1.sell_drink(@drink1, @customer1)
+    assert_equal([@drink2], @pub1.drinks)
+    assert_equal(true, @pub1.check_customer_age(@customer1))
+    assert_equal(1003, @pub1.till)
+  end
 
+  def test_sell_drink
+    @pub1.sell_drink(@drink1, @customer2)
+    assert_equal([@drink1, @drink2], @pub1.drinks)
+    assert_equal(false, @pub1.check_customer_age(@customer2))
+    assert_equal(1000, @pub1.till)
+  end
 
 
 

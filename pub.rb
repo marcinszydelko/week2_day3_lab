@@ -30,5 +30,13 @@ class Pub
      return false
    end
 
+   def sell_drink(drink, customer)
+    if check_customer_age(customer) == true
+      remove_drink(drink)
+      increase_till(drink.price)
+    end
+
+   end
+
 
 end
