@@ -30,6 +30,8 @@ class TestPub < MiniTest::Test
     assert_equal([@drink2], @pub1.drinks)
   end
 
+  
+
 
 
 
