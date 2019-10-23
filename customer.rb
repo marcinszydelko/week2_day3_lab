@@ -34,9 +34,10 @@ class Customer
     @drunkenness -= food.rejuvenation_level
   end
 
-  def buy_food(food)
+  def buy_food(food, pub)
     if check_wallet(food.price) == true
       reduce_wallet(food.price)
+      pub.sell_food(food)
       eat_food(food)
     end
 

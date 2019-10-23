@@ -77,11 +77,12 @@ class TestCustomer < MiniTest::Test
   end
 
   def test_buy_food
-    @customer1.buy_food(@food2)
+    @customer1.buy_food(@food2, @pub1)
     assert_equal(14, @customer1.wallet)
     assert_equal(-2, @customer1.drunkenness)
+    assert_equal(1001, @pub1.till)
   end
 
-  
+
 
 end
