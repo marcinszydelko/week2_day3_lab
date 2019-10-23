@@ -104,8 +104,10 @@ class TestPub < MiniTest::Test
     assert_equal(20, result)
   end
 
-  # def test_sell_stock
-  #   @pub1.sell_stock
-  # end
+  def test_stock_return
+    result = @pub1.stock_return("drink1")
+    assert_equal({drink_ref: "drink1",
+     stock: 20}, result)
+  end
 
 end

@@ -54,4 +54,12 @@ class Pub
       end
    end
 
+   def stock_return(drink_name)
+      for drink in @stock
+        return drink if drink[:drink_ref] == drink_name
+      end
+   end
+
+
+
 end
