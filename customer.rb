@@ -10,7 +10,11 @@ class Customer
   end
 
   def reduce_wallet(amount)
-    @wallet -= amount
+    @wallet -= amount if amount > 0
+  end
+
+  def buy_drink(drink)
+
   end
 
 

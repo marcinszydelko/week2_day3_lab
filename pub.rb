@@ -16,7 +16,13 @@ class Pub
      @drinks.delete(drink)
    end
 
-
+   def find_drink_by_name(drink_name)
+     for drink in @drinks
+       if drink.name == drink_name
+         return drink
+       end
+     end 
+   end
 
 
 
