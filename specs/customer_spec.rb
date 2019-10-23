@@ -18,6 +18,15 @@ class TestCustomer < MiniTest::Test
     assert_equal(0, @customer2.drunkenness)
   end
 
+  def test_reduce_wallet__5
+    @customer1.reduce_wallet(5)
+    assert_equal(10, @customer1.wallet)
+  end
+
+  # def test_reduce_wallet__minus_5
+  #   @customer1.reduce_wallet(-5)
+  #   assert_equal(15, @customer1.wallet)
+  # end
 
 
 
