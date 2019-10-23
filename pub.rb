@@ -17,11 +17,11 @@ class Pub
    end
 
    def find_drink_by_name(drink_name)
+     match = nil
      for drink in @drinks
-       if drink.name == drink_name
-         return drink
-       end
-     end 
+       match = drink if drink.name == drink_name
+     end
+     return match
    end
 
 
