@@ -23,9 +23,14 @@ class Customer
     return "not enough funds" if check_wallet(chosen_drink.price) == false
     pub.sell_drink(chosen_drink, self)
     reduce_wallet(chosen_drink.price)
+    add_drunkenness(chosen_drink)
   end
 
-  
+  def add_drunkenness(drink)
+    @drunkenness += drink.alcohol_level
+  end
+
+
 
 
 end

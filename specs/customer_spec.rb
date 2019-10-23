@@ -62,10 +62,10 @@ class TestCustomer < MiniTest::Test
     assert_equal(0,@customer2.drunkenness)
   end
 
-  # def test_buy_drink_drunkenness
-  #   @customer1.buy_drink("Tenants", @pub1)
-  #   assert_equal(5, @customer1.drunkenness)
-  # end
+  def test_buy_drink_drunkenness
+    @customer1.buy_drink("Tenants", @pub1)
+    assert_equal(5, @customer1.drunkenness)
+  end
 
 
 
