@@ -1,11 +1,12 @@
 class Pub
 
-   attr_reader :name, :till, :drinks
+   attr_reader :name, :till, :drinks, :stock
 
-   def initialize(name, till, drinks)
+   def initialize(name, till, drinks, stock)
      @name = name
      @till = till
      @drinks = drinks
+     @stock = stock
    end
 
    def increase_till(amount)
@@ -45,6 +46,12 @@ class Pub
 
    def sell_food(food)
      increase_till(food.price)
-   end 
+   end
+
+   def stock_check(drink_name)
+      for drink in @stock
+        return drink[:stock] if drink[:drink_ref] == drink_name
+      end
+   end
 
 end

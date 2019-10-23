@@ -12,18 +12,29 @@ class TestPub < MiniTest::Test
     @drink1 = Drink.new("Tenants", 3, 5)
     @drink2 = Drink.new("Best", 4, 6)
     # @stock = [@drink1, @drink2]
-    @pub1 = Pub.new("Ruby Inn", 1000,[@drink1, @drink2])
+    @pub1 = Pub.new("Ruby Inn", 1000,[@drink1, @drink2], [
+      {drink_ref: "drink1",
+       stock: 20},
+       {drink_ref: "drink2",
+        stock: 10}
+     ])
     @customer1 = Customer.new("Bill", 15, 20)
     @customer2 = Customer.new("Will", 30, 12)
     @customer3 = Customer.new("Gill", 2, 30)
     @food1 = Food.new("Kebab", 5, 10)
     @food2 = Food.new("Crisps", 1, 2)
+
+
   end
 
   def test_pub_attributes
     assert_equal("Ruby Inn", @pub1.name)
     assert_equal(1000, @pub1.till)
     assert_equal([@drink1, @drink2], @pub1.drinks)
+    assert_equal([{drink_ref: "drink1",
+     stock: 20},
+     {drink_ref: "drink2",
+      stock: 10}], @pub1.stock)
   end
 
   def test_increase_till
@@ -87,4 +98,14 @@ class TestPub < MiniTest::Test
     @pub1.sell_food(@food2)
     assert_equal(1001, @pub1.till)
   end
+
+  def test_stock_check
+    result = @pub1.stock_check("drink1")
+    assert_equal(20, result)
+  end
+
+  # def test_sell_stock
+  #   @pub1.sell_stock
+  # end
+
 end
