@@ -25,5 +25,7 @@ class Customer
     reduce_wallet(chosen_drink.price)
   end
 
+  
+
 
 end

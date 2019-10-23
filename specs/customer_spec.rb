@@ -47,6 +47,7 @@ class TestCustomer < MiniTest::Test
     assert_equal([@drink1, @drink2], @pub1.drinks)
   end
 
+
   def test_check_wallet__has_enough
     result = @customer1.check_wallet(3)
     assert_equal(true, result)
@@ -57,8 +58,14 @@ class TestCustomer < MiniTest::Test
     assert_equal(false, result)
   end
 
+  def test_drunkenness
+    assert_equal(0,@customer2.drunkenness)
+  end
 
-
+  # def test_buy_drink_drunkenness
+  #   @customer1.buy_drink("Tenants", @pub1)
+  #   assert_equal(5, @customer1.drunkenness)
+  # end
 
 
 
