@@ -67,6 +67,11 @@ class TestPub < MiniTest::Test
     assert_equal(true, @pub1.customer_drunkenness(@customer2))
   end
 
+  def test_customer_drunkenness__doesnt_pass
+    30.times{@customer2.increase_drunkenness(@drink1)}
+    assert_equal(false, @pub1.customer_drunkenness(@customer2))
+    assert_equal(150, @customer2.drunkenness)
+  end
 
 
 
